@@ -29,6 +29,11 @@ class postclassC {
 		$q->bindValue(":idinter", $P->getIdinter());
 		$q->bindValue(":image",$check) ;
 		$q->execute();
+		if ($q == true){
+			echo '<div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+             well submited   </div> ' ;
+		}
 		return $q ;
 	}else{
 		echo '<div class="alert alert-danger alert-dismissable">
@@ -61,17 +66,17 @@ class postclassC {
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                 sorry  , file already exist </div> ' ;
 			$uploadOk = 0;
-			$filneNAme= "error404gdah1" ;
+			$filneNAme= "error404gdah" ;
 		}
 		if ($uploadOk == 0) {
 			echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                file was not uploaded for unkown reason  </div> ' ;
-			$filneNAme = "error404gdah2" ;
+			$filneNAme = "error404gdah" ;
 			// if everything is ok, try to upload file
 		} else {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-				echo '<div class="alert alert-danger alert-dismissable">
+				echo '<div class="alert alert-success alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
               the file has been uploaded'. basename( $_FILES["fileToUpload"]["name"]). ' </div> ' ;
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
@@ -79,7 +84,7 @@ class postclassC {
 				echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                file was not uploaded for unkown reason  </div> ' ;
-				$filneNAme= "error404gdah3" ;
+				$filneNAme= "error404gdah" ;
 			}
 		}
 		return $filneNAme;

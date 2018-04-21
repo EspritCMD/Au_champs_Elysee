@@ -232,61 +232,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $j = 0 ;
 					include "../entities /postclass.php" ;
 					include "../core/postclassC.php" ;
-					if (strlen( $_POST["comment"]) > 900) {
+					if (strlen( $_POST["comment"]) > 2800) {
 						echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 900 retry one more time  click on button below to go back  </div> ';
+                more than 2800 retry one more time  click on button below to go back  </div> ';
+						$j++ ;
 
 						}
 						if (strlen($_POST["title"]) > 60) {
 							echo "<br>";
 							echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 20 in title retry one more time  click on button below to go back  </div> ';
+                more than 60 in title retry one more time  click on button below to go back  </div> ';
+							$j++ ;
 							}
 							if (strlen($_POST["title2"]) > 60) {
 								echo "<br>";
 								echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 20 in title 2 retry one more time  click on button below to go back  </div> ';
+                more than 60 in title 2 retry one more time  click on button below to go back  </div> ';
+								$j++ ;
 
 							}
-							if (j!=0){
+							if ($j!=0){
 								echo '<input type="button"  class="btn btn-sm btn-warning" value="Try again " onclick="history.back()"> ';
                             }
 							if ($j==0) {
 								$post = new post($_POST["title"], $_POST["title2"], $_POST["comment"], 12, 1, "");
 								$PostC = new postclassC();
 								$PostC->add($post);
-								echo "<br>";
-								if (!empty($PostC)) {
-									//	header("  url =http://localhost:8888/Blog2/blog2_backend/web/affiche-supprimer.php?_ijt=2vrqdv4ehbs7k57vomd5g32n8n");
-									echo '<div class="alert alert-success alert-dismissable">
-              <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-              something go wrong . </div>';
-									echo '<input type="button"  class="btn btn-sm btn-warning" value="Try again " onclick="history.back()"> ';
-
-								} else {
-									echo '<div class="alert alert-danger alert-dismissable">
-              <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-              Success! Well done its submitted. </div>';
-
-									//	header(" url =http://localhost:8888/Blog2/blog2_backend/web/affiche-supprimer.php?_ijt=2vrqdv4ehbs7k57vomd5g32n8n");
-
-								}
 							}
+                                ?>
 
-
-					?>
-
-
-
-
-
-
-
-
-
+								<center><input type="button" id="myButton" class="btn btn-sm btn-warning" value="see post" ></center>
+                                <script>
+                                    var page = "http://localhost:8888/git/Au_champs_Elysee/blog2_backend/views/affiche-supprimer.php" ;
+                                    document.getElementById("myButton").onclick = function () {
+                                            location.href = page ;
+                                        };
+                                </script>
+                    
 
 
 				</div>
