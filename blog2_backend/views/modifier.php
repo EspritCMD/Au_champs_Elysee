@@ -321,7 +321,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="menu-comunicacao-sub" >
 						<li id="menu-mensagens" ><a href="blank.html">Add Stories</a></li>
 						<li id="menu-arquivos" ><a href="affiche-supprimer.php">Delete/Modifier Storie </a></li>
-						<li id="menu-arquivos" ><a href="../web/affiche_commentaire_admin.php">Confirm Commentaire</a></li>
+						<li id="menu-arquivos" ><a href="affiche_commentaire_admin.php">Confirm Commentaire</a></li>
 					</ul>
 				</li>
 				<li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
