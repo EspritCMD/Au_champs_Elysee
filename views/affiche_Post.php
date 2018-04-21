@@ -274,7 +274,7 @@
 
 
 
-<div class="book-form">
+<div >
 	<!--//les images mte3i -->
 	<section>
 		<?php
@@ -302,13 +302,14 @@
 
 		?>
 		<center>
-			<strong><?php echo $tab[1];?></strong>
+			<h1 class="h1.w3l-title"><?php echo $tab[1];?></h1>
 		</center>
 		<hr>
 		<center>
+            <div class="glyphicon-blackboard">
 			<article>
 				<header>
-					<h1><?php echo $tab[2] ;?> </h1>
+					<h4 ><?php echo $tab[2] ;?> </h4>
 					<img src="<?php echo "../web/images/imageserveur/".$tab[8] ;?>" width="500">
 				</header>
 				<section>
@@ -324,13 +325,14 @@
                     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
                     <script type="text/javascript">stLight.options({publisher: "ef8d1f47-6408-4556-ab6c-9e221d6dd140", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
                     <span class='st_facebook' displayText='Facebook'></span>
-                    <span class='st_twitter' displayText='Tweet'></span>
+                    <span class='st_twitter' displa yText='Tweet'></span>
                     <span class='st_googleplus' displayText='Google +'></span>
                     <span class='st_email' displayText='Email'></span>
                     <span class='st_' displayText=''></span>
                     </div>
 				</footer>
 			</article>
+                </div>
 		</center>
         <center>
             <script type="text/javascript">

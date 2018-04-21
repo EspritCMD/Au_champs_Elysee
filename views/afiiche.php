@@ -325,7 +325,6 @@
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
                                             '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                       alert(titles[i].id) ;
 
                                     } else {
                                         suggestionhtml += '<td>' +
@@ -337,7 +336,7 @@
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                        alert(titles[i].id) ;
+
                                     }
                                     j++;
                                 }
@@ -387,7 +386,7 @@
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
                                             '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                        alert(titles[i].id) ;
+
 
                                     } else {
                                         suggestionhtml += '<td>' +
@@ -399,7 +398,7 @@
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                        alert(titles[i].id) ;
+
                                     }
                                     j++;
                                 }
@@ -449,7 +448,7 @@
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
                                             '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                        alert(titles[i].id) ;
+
 
                                     } else {
                                         suggestionhtml += '<td>' +
@@ -461,7 +460,7 @@
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                        alert(titles[i].id) ;
+
                                     }
                                     j++;
                                 }
@@ -481,6 +480,22 @@
 
 
             </div>
+            <style type="text/css">
+                table {
+                    height: 100px;
+                    width: 100px;
+                    margin: 0; padding: 0;
+                    border-collapse: collapse;
+                }
+                td {
+                    border: 1px solid #0F9E5E;
+                    border-spacing: 0;
+                    height: 100px;
+                    width: 100px;
+                    margin: 0; padding: 0;
+                    margin-right: 50px;
+                }
+            </style>
             <table class="table" id="tableaudaffichage">
                 <tr>
 					<?php
@@ -520,7 +535,7 @@
                                             <p>Posted by <strong><?php echo $value['idposter']?></strong></p>
                                             <p>Posted on <time><?php echo $value['postdate']?> </time></p>
                                             <center>
-                                                <a href="affiche_Post.php?id=<?php echo $value['id'] ?>">Read More</a>
+                                                <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="location.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
                                             </center>
 
                                         </footer>
@@ -550,7 +565,7 @@
                                             <p>Posted on
                                                 <time><?php echo $value['postdate'] ?> </time>
                                             </p>
-                                            <a href="affiche_Post.php?id=<?php echo $value['id'] ?>">Read More</a>
+                                            <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="location.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
                                         </footer>
 
                                     </article>
