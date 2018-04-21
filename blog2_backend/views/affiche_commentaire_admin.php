@@ -300,7 +300,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$i= 0 ;
 						foreach ($list2 as $item) {
 							$tab2 = $item ;
-							?><tr >
+							?><tr>
                             <td >
                                 postedbye : <img src="../../web/images/test2.jpg" width="50x">
                             </td>
@@ -309,7 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </td>
 
                             <td>
-                                    <input  class="btn btn-1 btn-success" type="submit" name="approuve<?php echo $i; ?>" value="submit" onclick="aaaadddsuprimer(<?php echo $i; ?>)">
+                                    <input  class="btn btn-1 btn-success" type="submit" name="approuve<?php echo $i; ?>" value="submit" onclick="approuvecomentaire(<?php echo $i; ?>)">
                                     <input type="text" id="gettheidforcoments<?php echo $i;?>" style="display: none ; " value="<?php echo $tab2['id']?>" >
                                     <input class="btn btn-1 btn-danger" type="submit" onclick="aaaadddsuprimer(<?php echo $i; ?>)" id="supprimercom" name="supprimer<?php echo $i ?>" value="supprimer"  >
                                 <script>
@@ -322,11 +322,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             data : 'id='+ id ,
                                             success : function (data) {
                                                 if (data = "done" ) {
-                                                    document.getElementById('alertofsubmiting').style.display = 'block';
+                                                    document.getElementById('alertofdelting').style.display = 'block';
                                                    
                                                 }
                                             }
                                         })
+                                    }
+                                    function approuvecomentaire(str) {
+                                        var number = "gettheidforcoments" + str ;
+                                        var id =  document.getElementById(number).value ;
+                                        $.ajax({
+                                            url : 'approuve_commentaire.php' ,
+                                            type : 'GET' ,
+                                            data : 'id='+ id ,
+                                            success : function (data) {
+                                                if (data = "done" ) {
+                                                    document.getElementById('alertofsubmiting').style.display = 'block';
+                                                }
+                                            }
+                                        })
+
                                     }
                                 </script>
                             </td>

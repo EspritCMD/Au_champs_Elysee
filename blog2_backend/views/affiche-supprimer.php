@@ -380,7 +380,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             success: function (data) {
                                                 var titles = JSON.parse(data);
-                                                console.log(titles);
                                                 if (titles.length == 0  ) {
                                                     document.getElementById("tableaudaffichage").innerHTML = "<p style='font-size: 150px ; text-align: center' > nothing to show </p>" ;
                                                 }else {
@@ -407,8 +406,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+
-                                                                '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                                                '<center>'+ ' <center></footer></article></center></td>';
+                                                              // suggestionhtml += '<input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = '+'postamodifier.php?id=<?php echo $value['id'] ?>';" >n' ;
                                                             //alert(titles[i].id) ;
 
                                                         } else {
@@ -420,8 +419,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                                            alert(titles[i].id) ;
+                                                                '<center> ' + '</center></footer></article></center></td>';
                                                         }
                                                         j++;
                                                     }
@@ -456,6 +454,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         margin: 0; padding: 0;
                                     }
                                 </style>
+                                <div class="alert alert-success alert-dismissable" style="display: none;">
+                                    <button aria-hidden="true" id="supprimer" data-dismiss="alert" class="close" type="button"> × </button>
+                                     post supprimer</div>
                                 <table class="table" id="tableaudaffichage" >
                                     <tr>
 										<?php
@@ -494,9 +495,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 <p>Posted by <strong><?php echo $value['idposter']?></strong></p>
                                                                 <p>Posted on <time><?php echo $value['postdate']?> </time></p>
                                                                 <center>
-                                                                    <input  class="btn btn-1 btn-warning" type="button" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
-                                                                    <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="localStorage.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
-                                                                    <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="localStorage.href='../../views/supprime.php?id=<?php echo $value['id'] ?>' ; ">
+                                                                    <input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
+                                                                    <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="location.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
+                                                                    <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="supprimerpost(<?php echo $value['id'] ;?>) ;">
                                                                 </center>
 
                                                             </footer>
@@ -527,8 +528,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                     <time><?php echo $value['postdate'] ?> </time>
                                                                 </p>
                                                                 <input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
-                                                                <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="localStorage.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
-                                                                <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="localStorage.href='../../views/supprime.php?id=<?php echo $value['id'] ?>' ; ">
+                                                                <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="location.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
+                                                                <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="supprimerpost(<?php echo $value['id'] ;?>) ;">
 
                                                             </footer>
 
@@ -545,6 +546,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </center>
 
                         </section>
+                        <script>
+                            function supprimerpost(str) {
+                                var id = 'id=' +str ;
+                                if (confirm("do you want to delete that post ? ")){
+                                    $.ajax({
+                                        url : 'supprimer_post.php' ,
+                                        type : 'GET' ,
+                                        data : id  ,
+                                        success : function (data) {
+                                            if (data == "done"){
+                                                affichegedecroissant() ;
+                                                document.getElementById('supprimer').style.display = 'block' ;
+                                            }
+
+                                        }
+                                    })
+
+
+
+
+
+
+
+
+
+                                }
+                            }
+                        </script>
 
                     </div>
 
