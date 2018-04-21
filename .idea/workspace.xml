@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e1b9792-364e-4086-9d30-46f95d4f45b2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/add_Post.php" afterPath="$PROJECT_DIR$/blog2_backend/views/add_Post.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/affiche-supprimer.php" afterPath="$PROJECT_DIR$/blog2_backend/views/affiche-supprimer.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/affiche_Post.php" afterPath="$PROJECT_DIR$/blog2_backend/views/affiche_Post.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/blank.html" afterPath="$PROJECT_DIR$/blog2_backend/views/blank.html" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/blog_modifier.php" afterPath="$PROJECT_DIR$/blog2_backend/views/blog_modifier.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/modifier.php" afterPath="$PROJECT_DIR$/blog2_backend/views/modifier.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/postamodifier.php" afterPath="$PROJECT_DIR$/blog2_backend/views/postamodifier.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/views/supprime.php" afterPath="$PROJECT_DIR$/blog2_backend/views/supprimecomments.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/web/affiche-supprimer-recherche.php" afterPath="$PROJECT_DIR$/blog2_backend/web/affiche-supprimer-recherche.php" />
-      <change beforePath="$PROJECT_DIR$/blog2_backend/web/affiche_commentaire_admin.php" afterPath="$PROJECT_DIR$/blog2_backend/views/affiche_commentaire_admin.php" />
-    </list>
+    <list default="true" id="5e1b9792-364e-4086-9d30-46f95d4f45b2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16042000" />
+    <option name="totallyTimeSpent" value="16547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="811" extended-state="0" />
