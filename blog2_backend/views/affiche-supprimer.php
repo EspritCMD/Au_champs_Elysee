@@ -494,7 +494,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 <p>Posted by <strong><?php echo $value['idposter']?></strong></p>
                                                                 <p>Posted on <time><?php echo $value['postdate']?> </time></p>
                                                                 <center>
-                                                                    <input  class="btn btn-1 btn-warning" type="button" name="modifier" value="modifier" onclick="location.href = 'affiche_Post.php?id=<?php echo $value['id'] ?>';" >
+                                                                    <input  class="btn btn-1 btn-warning" type="button" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
                                                                     <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="localStorage.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
                                                                     <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="localStorage.href='../../views/supprime.php?id=<?php echo $value['id'] ?>' ; ">
                                                                 </center>
@@ -526,7 +526,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 <p>Posted on
                                                                     <time><?php echo $value['postdate'] ?> </time>
                                                                 </p>
-                                                                <input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = 'affiche_Post.php?id=<?php echo $value['id'] ?>';" >
+                                                                <input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
                                                                 <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="localStorage.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
                                                                 <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="localStorage.href='../../views/supprime.php?id=<?php echo $value['id'] ?>' ; ">
 

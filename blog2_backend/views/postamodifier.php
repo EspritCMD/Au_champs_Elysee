@@ -225,57 +225,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--inner block start here-->
 			<div class="inner-block">
 				<div class="blank">
-					<h2 style="position: center">Add your post here </h2>
+					<h2 style="position: center">Modify your Post here  </h2>
 					<?php
+					$j = 0 ;
 					include "../entities /postclass.php" ;
 					include "../core/postclassC.php" ;
-					$post = new post($_POST["title"] , $_POST["title2"] , $_POST["comment"] , 12 ,1 , "") ;
-					$j = 0 ;
-					if (strlen( $_POST["comment"]) > 2800) {
-						echo strlen( $_POST["comment"]) ;
-						echo "<br>".strlen( $_POST["comment"]) ;
-						echo '<div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 2800 characters retry one more time  click on button below to go back  </div> ';
-						$j++ ;
-
+					$postaffichage = new postclassC() ;
+					$tabdepost = $postaffichage->affichePost($_GET['id']) ;
+					$i = 0 ;
+					foreach ($tabdepost as $key=>$value){
+						$tab[$i]= $value ;
+						$i++ ;
 					}
-					if (strlen($_POST["title"]) > 60) {
-						echo "<br>";
-						echo '<div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 20 in title retry one more time  click on button below to go back  </div> ';
-						$j++ ;
-					}
-					if (strlen($_POST["title2"]) > 60) {
-						echo "<br>";
-						echo '<div class="alert alert-danger alert-dismissable">
-                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-                more than 20 in title 2 retry one more time  click on button below to go back  </div> ';
-						$j++ ;
-
-					}
-					if ($j!=0){
-						echo '<input type="button"  class="btn btn-sm btn-warning" value="Try again " onclick="history.back()"> ';
-					}
-					if ($j==0) {
-						$PostC= new postclassC() ;
-						$PostC->modifier($post , $_POST['id'] ) ;
-						echo '<div class="alert alert-success alert-dismissable">
-              <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
-              Success! Well done its submitted. </div>' ;
-						echo '<input type="button"  class="btn btn-sm btn-success" value="Try again " onclick="history.back()"> ';
-
-					}
-
-
 					?>
-
-
-
-
-
-
+					<center>
+						<p><strong>Stories</strong></p>
+					</center>
+					<hr>
+					<center>
+						<div class="signup-block">
+							<form class="" action="modifier.php" method="post" enctype="multipart/form-data">
+								<input type="text" name="title" value="<?php echo $tab[1];?>" placeholder="Title" required>
+								<input type="text" name="title2" value="<?php echo $tab[2];?>"  placeholder="Second Title"  required>
+								<textarea rows="5" cols="60" name="comment" id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo $tab[3] ; ?></textarea><br>
+								<input type="text" name="id" value="<?php echo $tab[0];?>" style="display: none">
+								<img src="../../web/images/imageserveur/<?php echo $tab[8] ;?>" >
+								<input type="file" name="fileToUpload" id="fileToUpload" required placeholder="Add file">
+								<input type="submit" value="Upload Image" name="submit">
+							</form>
+						</div>
 
 
 

@@ -39,7 +39,7 @@ class postclassC {
 
 	}
 	public function chekcimage() {
- 		$target_dir = "/Applications/MAMP/htdocs/Blog2/web/images/imageserveur/";
+ 		$target_dir = "/Applications/MAMP/htdocs/git/Au_champs_Elysee/web/images/imageserveur/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$filneNAme = basename($_FILES["fileToUpload"]["name"]);  ;
 		$uploadOk = 1;
@@ -138,14 +138,24 @@ class postclassC {
 		$q->bindValue(":id" , $id) ;
 		return $q->execute() ;
 	}
-	public function modifier($p , $id) {
-		$db = config::getConnexion() ;
-		$sql = "update post set  posttext =:posttext , title=:title , title2=:title2  , postdate = current_timestamp WHERE id =:id" ;
-		$q = $db->prepare($sql) ;
-		$q->bindValue(":posttext" , $p->getPosttext()) ;
-		$q->bindValue(":title" , $p->getTitle())  ;
-		$q->bindValue(":title2" , $p->getTitle())  ;
-		$q->bindValue(":id" , $id) ;
-		return $q->execute() ;
+	public function modifier($p , $id ) {
+
+		$check = $this->chekcimage();
+		if ($check != "error404gdah") {
+			$filename = "/Applications/MAMP/htdocs/git/Au_champs_Elysee/web/images/imageserveur/".$image ;
+			if (file_exists($filename)){
+				unlink($filename);
+			}
+			$db = config::getConnexion();
+			$sql = "UPDATE post SET  posttext =:posttext , title=:title , title2=:title2 , image=:image  , postdate = current_timestamp WHERE id =:id";
+			$q = $db->prepare($sql);
+			$q->bindValue(":posttext", $p->getPosttext());
+			$q->bindValue(":title", $p->getTitle());
+			$q->bindValue(":title2", $p->getTitle());
+			$q->bindValue(":image" , $check);
+			$q->bindValue(":id", $id);
+			return $q->execute();
+		}
+		return null ;
 	}
 }
