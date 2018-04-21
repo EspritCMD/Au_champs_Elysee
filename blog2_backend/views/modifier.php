@@ -259,6 +259,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						echo '<input type="button"  class="btn btn-sm btn-warning" value="Try again " onclick="history.back()"> ';
 					}
 					if ($j==0) {
+					    if (isset($_POST['test'])){
+					        echo "checkedddddddddddd" ;
+
 						$PostC= new postclassC() ;
 						$PostC->modifier($post , $_POST['id'] ) ;
 						echo '<div class="alert alert-success alert-dismissable">
@@ -266,6 +269,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               Success! Well done its submitted. </div>' ;
 						echo '<input type="button"  class="btn btn-sm btn-success" value="Try again " onclick="history.back()"> ';
 
+					}else{
+							$PostC= new postclassC() ;
+							$PostC->modifiersansimage($post , $_POST['id'] ) ;
+							echo '<div class="alert alert-success alert-dismissable">
+              <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+              Success! Well done its submitted. </div>' ;
+							echo '<input type="button"  class="btn btn-sm btn-success" value="Try again " onclick="history.back()"> ';
+
+					    }
 					}
 
 

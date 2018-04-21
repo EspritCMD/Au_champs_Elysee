@@ -248,11 +248,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<input type="text" name="title" value="<?php echo $tab[1];?>" placeholder="Title" required>
 								<input type="text" name="title2" value="<?php echo $tab[2];?>"  placeholder="Second Title"  required>
 								<textarea rows="5" cols="60" name="comment" id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo $tab[3] ; ?></textarea><br>
-								<input type="text" name="id" value="<?php echo $tab[0];?>" style="display: none">
+								<input type="text" name="id" value="<?php echo $tab[0];?>" style="display: none"><br>
+                                <input type="checkbox" id="checkboximage" name="test" value="value1" onclick="checkimageuploadsatate();" ><label for="test" style="font-size: 16px">if you want to change your image check this checkbox and chosse image </label><br>
 								<img src="../../web/images/imageserveur/<?php echo $tab[8] ;?>" >
-								<input type="file" name="fileToUpload" id="fileToUpload" required placeholder="Add file">
+								<input type="file" name="fileToUpload" id="fileToUpload" required placeholder="Add file" >
 								<input type="submit" value="Upload Image" name="submit">
 							</form>
+                            <script>
+                                document.getElementById('fileToUpload').style.display = 'none' ;
+                                document.getElementById('fileToUpload').required = false ;
+                                function checkimageuploadsatate() {
+                                    var checkimagestate = document.getElementById('checkboximage').checked ;
+                                    if (checkimagestate== true) {
+                                       document.getElementById('fileToUpload').style.display = 'inline' ;
+                                        document.getElementById('fileToUpload').required = true ;
+                                    }else {
+                                        document.getElementById('fileToUpload').style.display = 'none' ;
+                                        document.getElementById('fileToUpload').required = false ;
+
+                                    }
+                                }
+                            </script>
 						</div>
 
 

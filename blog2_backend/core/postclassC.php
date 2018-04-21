@@ -158,4 +158,15 @@ class postclassC {
 		}
 		return null ;
 	}
+		public function modifiersansimage($p , $id) {
+			$db = config::getConnexion();
+			$sql = "UPDATE post SET  posttext =:posttext , title=:title , title2=:title2   , postdate = current_timestamp WHERE id =:id";
+			$q = $db->prepare($sql);
+			$q->bindValue(":posttext", $p->getPosttext());
+			$q->bindValue(":title", $p->getTitle());
+			$q->bindValue(":title2", $p->getTitle());
+			$q->bindValue(":id", $id);
+			return $q->execute();
+		}
 }
+
