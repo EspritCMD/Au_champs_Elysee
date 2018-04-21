@@ -29,6 +29,11 @@ class postclassC {
 		$q->bindValue(":idinter", $P->getIdinter());
 		$q->bindValue(":image",$check) ;
 		$q->execute();
+		if ($q == true){
+			echo '<div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+             well submited   </div> ' ;
+		}
 		return $q ;
 	}else{
 		echo '<div class="alert alert-danger alert-dismissable">
@@ -39,7 +44,7 @@ class postclassC {
 
 	}
 	public function chekcimage() {
- 		$target_dir = "/Applications/MAMP/htdocs/Blog2/web/images/imageserveur/";
+ 		$target_dir = "/Applications/MAMP/htdocs/git/Au_champs_Elysee/web/images/imageserveur/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$filneNAme = basename($_FILES["fileToUpload"]["name"]);  ;
 		$uploadOk = 1;
@@ -61,17 +66,17 @@ class postclassC {
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                 sorry  , file already exist </div> ' ;
 			$uploadOk = 0;
-			$filneNAme= "error404gdah1" ;
+			$filneNAme= "error404gdah" ;
 		}
 		if ($uploadOk == 0) {
 			echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                file was not uploaded for unkown reason  </div> ' ;
-			$filneNAme = "error404gdah2" ;
+			$filneNAme = "error404gdah" ;
 			// if everything is ok, try to upload file
 		} else {
 			if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-				echo '<div class="alert alert-danger alert-dismissable">
+				echo '<div class="alert alert-success alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
               the file has been uploaded'. basename( $_FILES["fileToUpload"]["name"]). ' </div> ' ;
 				//echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
@@ -79,7 +84,7 @@ class postclassC {
 				echo '<div class="alert alert-danger alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
                file was not uploaded for unkown reason  </div> ' ;
-				$filneNAme= "error404gdah3" ;
+				$filneNAme= "error404gdah" ;
 			}
 		}
 		return $filneNAme;
@@ -138,14 +143,35 @@ class postclassC {
 		$q->bindValue(":id" , $id) ;
 		return $q->execute() ;
 	}
-	public function modifier($p , $id) {
-		$db = config::getConnexion() ;
-		$sql = "update post set  posttext =:posttext , title=:title , title2=:title2  , postdate = current_timestamp WHERE id =:id" ;
-		$q = $db->prepare($sql) ;
-		$q->bindValue(":posttext" , $p->getPosttext()) ;
-		$q->bindValue(":title" , $p->getTitle())  ;
-		$q->bindValue(":title2" , $p->getTitle())  ;
-		$q->bindValue(":id" , $id) ;
-		return $q->execute() ;
+	public function modifier($p , $id ) {
+
+		$check = $this->chekcimage();
+		if ($check != "error404gdah") {
+			$filename = "/Applications/MAMP/htdocs/git/Au_champs_Elysee/web/images/imageserveur/".$image ;
+			if (file_exists($filename)){
+				unlink($filename);
+			}
+			$db = config::getConnexion();
+			$sql = "UPDATE post SET  posttext =:posttext , title=:title , title2=:title2 , image=:image  , postdate = current_timestamp WHERE id =:id";
+			$q = $db->prepare($sql);
+			$q->bindValue(":posttext", $p->getPosttext());
+			$q->bindValue(":title", $p->getTitle());
+			$q->bindValue(":title2", $p->getTitle());
+			$q->bindValue(":image" , $check);
+			$q->bindValue(":id", $id);
+			return $q->execute();
+		}
+		return null ;
 	}
+		public function modifiersansimage($p , $id) {
+			$db = config::getConnexion();
+			$sql = "UPDATE post SET  posttext =:posttext , title=:title , title2=:title2   , postdate = current_timestamp WHERE id =:id";
+			$q = $db->prepare($sql);
+			$q->bindValue(":posttext", $p->getPosttext());
+			$q->bindValue(":title", $p->getTitle());
+			$q->bindValue(":title2", $p->getTitle());
+			$q->bindValue(":id", $id);
+			return $q->execute();
+		}
 }
+

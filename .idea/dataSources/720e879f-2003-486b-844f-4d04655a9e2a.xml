@@ -936,7 +936,7 @@
     </column>
     <column id="235" parent="228" name="posttext">
       <Position>4</Position>
-      <DataType>varchar(1000)|0</DataType>
+      <DataType>varchar(3000)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="236" parent="228" name="postdate">

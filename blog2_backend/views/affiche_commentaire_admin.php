@@ -13,13 +13,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="../web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="../web/css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!--js-->
-<script src="js/jquery-2.1.1.min.js"></script> 
+<script src="../web/js/jquery-2.1.1.min.js"></script>
 <!--icons-css-->
-<link href="css/font-awesome.css" rel="stylesheet"> 
+<link href="../web/css/font-awesome.css" rel="stylesheet">
 <!--Google Fonts-->
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
+											   <div class="user_img"><img src="../web/images/p4.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -66,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											   <div class="clearfix"></div>	
 											</a></li>
 											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
+												<div class="user_img"><img src="../web/images/p2.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor </p>
 												<p><span>1 hour ago</span></p>
@@ -74,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											  <div class="clearfix"></div>	
 											</a></li>
 											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
+											   <div class="user_img"><img src="../web/images/p3.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -97,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</li>
 											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
+												<div class="user_img"><img src="../web/images/p5.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											  <div class="clearfix"></div>	
 											 </a></li>
 											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
+												<div class="user_img"><img src="../web/images/p6.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											   <div class="clearfix"></div>	
 											 </a></li>
 											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
+												<div class="user_img"><img src="../web/images/p7.png" alt=""></div>
 											   <div class="notification_desc">
 												<p>Lorem ipsum dolor</p>
 												<p><span>1 hour ago</span></p>
@@ -187,7 +187,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
-												<span class="prfil-img"><img src="images/p1.png" alt=""> </span> 
+												<span class="prfil-img"><img src="../web/images/p1.png" alt=""> </span>
 												<div class="user-name">
 													<p>Malorum</p>
 													<span>Administrator</span>
@@ -239,12 +239,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <label style="position: center">Commentaire</label>
                     <br>
                     <br>
-                    <table style="margin-left: 100px ; margin-right: 100px ;">
+                    <div id="alertofsubmiting" class="alert alert-success alert-dismissable" style="display: none ;">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+                        Success! Well done its submitted. </div>
+                    <div id="alertofdelting" class="alert alert-success alert-dismissable" style="display: none;">
+                        <button aria-hidden="true" data-dismiss="alert" class="close" type="button"> × </button>
+                        Success! Well done its deleted. </div>
+                    <style type="text/css">
+                        table {
+                            height: 400px;
+                            width: 1000px;
+                            margin: 0; padding: 0;
+                            border-collapse: collapse;
+
+                        }
+                        td {
+                            border: 1px solid #0F9E5E;
+                            border-spacing: 0;
+                            height: 100px;
+                            width: 1000px;
+                            margin: 0; padding: 0;
+                        }
+                    </style>
+                    <table id="tableaffichage">
+
 						<?php
 
 
-						include "../../core/comclassC.php" ;
-						include "../../entities /postclass.php" ;
+						include "../../core/comclassC.php";
+						include "../../entities /postclass.php";
 
 						$commentaireC = new  commentaireclasseC() ;
 
@@ -274,35 +297,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </center>
 							<?php
 						}
+						$i= 0 ;
 						foreach ($list2 as $item) {
 							$tab2 = $item ;
 							?><tr >
-                            <td style="width: 600px">
+                            <td >
+                                postedbye : <img src="../../web/images/test2.jpg" width="50x">
+                            </td>
+                            <td >
 								<?php echo $tab2['commentaire']?>
                             </td>
-                            <td style="width: 600px">
-                                postedbye<br>
-                                <img src="../../web/images/test2.jpg" width="50x">
-                            </td>
+
                             <td>
-                                <form action="#" method="post">
-                                    <input  class="btn btn-1 btn-success" type="submit" name="<?php echo $tab2['id']?>" value="submit">
-                                    <input class="btn btn-1 btn-danger" type="submit" name="supprimer<?php echo $tab2['id']?>" value="supprimer">
-                                </form>
+                                    <input  class="btn btn-1 btn-success" type="submit" name="approuve<?php echo $i; ?>" value="submit" onclick="aaaadddsuprimer(<?php echo $i; ?>)">
+                                    <input type="text" id="gettheidforcoments<?php echo $i;?>" style="display: none ; " value="<?php echo $tab2['id']?>" >
+                                    <input class="btn btn-1 btn-danger" type="submit" onclick="aaaadddsuprimer(<?php echo $i; ?>)" id="supprimercom" name="supprimer<?php echo $i ?>" value="supprimer"  >
+                                <script>
+                                    function aaaadddsuprimer(str) {
+                                        var number = "gettheidforcoments" + str ;
+                                        var id =  document.getElementById(number).value ;
+                                        $.ajax({
+                                            url : 'supprimecomments.php' ,
+                                            type : 'GET' ,
+                                            data : 'id='+ id ,
+                                            success : function (data) {
+                                                if (data = "done" ) {
+                                                    document.getElementById('alertofsubmiting').style.display = 'block';
+                                                   
+                                                }
+                                            }
+                                        })
+                                    }
+                                </script>
                             </td>
                             </tr>
-							<?php
 
+
+							<?php
+                            $i++ ;
+                            echo $i ;
 						}
 
 						foreach ($_POST as $key=>$value) {
-
-
-							$commentaireC->approuvecommentaire($key);
 							if (substr($key , 0 , 9) == "supprimer") {
-
 								$commentaireC->supprimercommentaire(substr($key , 9 , strlen($key))) ;
-							}
+							}else{
+								$commentaireC->approuvecommentaire($key);
+                            }
 						}
 						?>
                         <tr >
@@ -344,8 +385,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		        </li>
                   <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Stories</span><span class="fa fa-angle-right" style="float: right"></span></a>
                       <ul id="menu-comunicacao-sub" >
-                          <li id="menu-mensagens" ><a href="../views/blank.html">Add Stories</a></li>
-                          <li id="menu-arquivos" ><a href="../views/affiche-supprimer.php">Delete/Modifier Storie </a></li>
+                          <li id="menu-mensagens" ><a href="blank.html">Add Stories</a></li>
+                          <li id="menu-arquivos" ><a href="affiche-supprimer.php">Delete/Modifier Storie </a></li>
                           <li id="menu-arquivos" ><a href="affiche_commentaire_admin.php">Confirm Commentaire</a></li>
                       </ul>
                   </li>
@@ -367,7 +408,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		         <li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>
 		         	 <ul id="menu-academico-sub" >
 			            <li id="menu-academico-avaliacoes" ><a href="404.html">404</a></li>
-			            <li id="menu-academico-boletim" ><a href="../views/blank.html">Blank</a></li>
+			            <li id="menu-academico-boletim" ><a href="blank.html">Blank</a></li>
 		             </ul>
 		         </li>
 		         <li><a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span class="fa fa-angle-right" style="float: right"></span></a>
@@ -402,10 +443,10 @@ $(".sidebar-icon").click(function() {
             });
 </script>
 <!--scrolling js-->
-		<script src="js/jquery.nicescroll.js"></script>
-		<script src="js/scripts.js"></script>
+		<script src="../web/js/jquery.nicescroll.js"></script>
+		<script src="../web/js/scripts.js"></script>
 		<!--//scrolling js-->
-<script src="js/bootstrap.js"> </script>
+<script src="../web/js/bootstrap.js"> </script>
 <!-- mother grid end here-->
 </body>
 </html>

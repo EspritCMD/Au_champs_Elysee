@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -224,47 +225,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--inner block start here-->
 			<div class="inner-block">
 				<div class="blank">
-					<h2 style="position: center">Add your post here </h2>
+					<h2 style="position: center">Modify your Post here  </h2>
+					<?php
+					$j = 0 ;
+					include "../entities /postclass.php" ;
+					include "../core/postclassC.php" ;
+					$postaffichage = new postclassC() ;
+					$tabdepost = $postaffichage->affichePost($_GET['id']) ;
+					$i = 0 ;
+					foreach ($tabdepost as $key=>$value){
+						$tab[$i]= $value ;
+						$i++ ;
+					}
+					?>
+					<center>
+						<p><strong>Stories</strong></p>
+					</center>
+					<hr>
+					<center>
+						<div class="signup-block">
+							<form class="" action="modifier.php" method="post" enctype="multipart/form-data">
+								<input type="text" name="title" value="<?php echo $tab[1];?>" placeholder="Title" required>
+								<input type="text" name="title2" value="<?php echo $tab[2];?>"  placeholder="Second Title"  required>
+								<textarea rows="5" cols="60" name="comment" id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo $tab[3] ; ?></textarea><br>
+								<input type="text" name="id" value="<?php echo $tab[0];?>" style="display: none"><br>
+                                <input type="checkbox" id="checkboximage" name="test" value="value1" onclick="checkimageuploadsatate();" ><label for="test" style="font-size: 16px">if you want to change your image check this checkbox and chosse image </label><br>
+								<img src="../../web/images/imageserveur/<?php echo $tab[8] ;?>" >
+								<input type="file" name="fileToUpload" id="fileToUpload" required placeholder="Add file" >
+								<input type="submit" value="Upload Image" name="submit">
+							</form>
+                            <script>
+                                document.getElementById('fileToUpload').style.display = 'none' ;
+                                document.getElementById('fileToUpload').required = false ;
+                                function checkimageuploadsatate() {
+                                    var checkimagestate = document.getElementById('checkboximage').checked ;
+                                    if (checkimagestate== true) {
+                                       document.getElementById('fileToUpload').style.display = 'inline' ;
+                                        document.getElementById('fileToUpload').required = true ;
+                                    }else {
+                                        document.getElementById('fileToUpload').style.display = 'none' ;
+                                        document.getElementById('fileToUpload').required = false ;
 
-					<div>
-						<!--//les images mte3i -->
-						<section>
-							<?php
-							include "../core/postclassC.php";
-							$post = new postclassC() ;
-							$AA = $post->affichePost($_GET['id']) ;
-							$i = 0 ;
-							foreach ($AA as $key=>$value){
-								$tab[$i]= $value ;
-								$i++ ;
-							}
-							?>
-                            <div class="blankpage-main">
-							<center>
-								<p><strong>Modifier Stories</strong></p>
-							</center>
-
-							<center>
-                                <div class="signup-block">
-                                    <form class="" action="../views/add_Post.php" method="post" enctype="multipart/form-data">
-                                        <input type="text" name="title" value="<?php echo  $tab[1]?>" placeholder="Title" required>
-                                        <input type="text" name="title2" value="<?php echo  $tab[2]?>"  placeholder="Second Title"  required>
-                                        <textarea rows="10" cols="60" name="comment" id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo  $tab[3]?></textarea><br>
-                                        <img src="<?php echo "../../web/images/imageserveur/".  $tab[8] ; ?>">
-                                        <input type="file" name="fileToUpload" id="fileToUpload" required placeholder="Add file">
-                                        <input type="submit" value="Upload Image" name="submit">
-                                    </form>
-							</center>
-                            </div>
-						</section>
-
-					</div>
-
-
-
-
-
-
+                                    }
+                                }
+                            </script>
+						</div>
 
 
 
@@ -275,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!--inner block end here-->
 			<!--copy rights start here-->
 			<div class="copyrights">
-				<p>© 2016 Shoppy. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+				<p>© 2016 Shoppy. All Rights Reserved Abderrahim Gdah | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 			</div>
 			<!--COPY rights end here-->
 		</div>
@@ -294,13 +299,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li><a href="portlet.html">Portlets</a></li>
 					</ul>
 				</li>
-                <li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Stories</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                    <ul id="menu-comunicacao-sub" >
-                        <li id="menu-mensagens" ><a href="blank.html">Add Stories</a></li>
-                        <li id="menu-arquivos" ><a href="affiche-supprimer.php">Delete/Modifier Storie </a></li>
-                        <li id="menu-arquivos" ><a href="affiche_commentaire_admin.php">Confirm Commentaire</a></li>
-                    </ul>
-                </li>
+				<li id="menu-comunicacao" ><a href="#"><i class="fa fa-book nav_icon"></i><span>Stories</span><span class="fa fa-angle-right" style="float: right"></span></a>
+					<ul id="menu-comunicacao-sub" >
+						<li id="menu-mensagens" ><a href="blank.html">Add Stories</a></li>
+						<li id="menu-arquivos" ><a href="affiche-supprimer.php">Delete/Modifier Storie </a></li>
+						<li id="menu-arquivos" ><a href="affiche_commentaire_admin.php">Confirm Commentaire</a></li>
+					</ul>
+				</li>
 				<li><a href="maps.html"><i class="fa fa-map-marker"></i><span>Maps</span></a></li>
 				<li id="menu-academico" ><a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span class="fa fa-angle-right" style="float: right"></span></a>
 					<ul id="menu-academico-sub" >
