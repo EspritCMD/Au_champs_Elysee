@@ -10,6 +10,7 @@
 	<!--// Meta tag Keywords -->
 	<!-- css files -->
 	<link href="../web/css/store.css" rel="stylesheet" type="text/css" media="all">
+    <link href="../web/css/font-awesome-animation.css" >
 	<link href="../web/css/stylepanier.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='//fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="../web/js/jquery-1.11.1.min.js"></script>
@@ -101,7 +102,7 @@
         });
 	</script>
 </head>
-<body>
+<body  >
 <!--main-->
 
 
@@ -268,8 +269,27 @@
 	</div>
 </div>
 <!-- //modal -->
-
-
+<style>
+    div.polaroidpost {
+        width: 1000px;
+        padding: 10px 10px 20px 10px;
+        border: 1px solid #BFBFBF;
+        background-color: white;
+        box-shadow: 10px 10px 5px #aaaaaa;
+    }
+</style>
+<style>
+    img.craft {
+        width: 2000px ;
+        height: 450px;
+    }
+    img.craft:hover{
+        opacity: 0.9;
+        box-shadow: 10px 10px 5px #000000;
+        -moz-box-shadow: 0px 10px 5px #000000;
+        -webkit-box-shadow: 0px 10px 5px #000000;
+    }
+</style>
 
 
 
@@ -284,14 +304,13 @@
 		$post = new postclassC() ;
 		$interaction = new interactionC() ;
 		$nbrdejaime =  $interaction->calculerjaime($_GET['id']) ;
-		//var_dump($nbrdejaime) ;
 		$jaime = $interaction->checkjaime(10,$_GET['id']) ;
-		//var_dump($jaime) ;
-		if ($jaime['jaime'] == 1 ) {
+		/*if ($jaime['jaime'] == 1 ) {
 		    $imagesrc = "../web/images/love1.png";
         }else{
 			$imagesrc = "../web/images/love0.png";
 		}
+		*/
 		$AA = $post->affichePost($_GET['id']) ;
 		$i = 0 ;
         foreach ($AA as $key=>$value){
@@ -301,26 +320,30 @@
 
 
 		?>
+
+
 		<center>
-			<h1 class="h1.w3l-title"><?php echo $tab[1];?></h1>
-		</center>
-		<hr>
-		<center>
-            <div class="glyphicon-blackboard">
+            <div>
+                <img class="craft" src="../web/images/good-food-post.jpg">
+
+            </div>
+
+            <div style="padding: 40px" >
+                <div class="polaroidpost">
 			<article>
 				<header>
-					<h4 ><?php echo $tab[2] ;?> </h4>
+					<h1 style="font-size: 20px  ; text-decoration-color: red ;"><?php echo $tab[2] ;?> </h1><br><br>
 					<img src="<?php echo "../web/images/imageserveur/".$tab[8] ;?>" width="500">
 				</header>
-				<section>
-					<p><?php echo $tab[3]?></p>
+				<section style="padding: 30px ;">
+					<p style="font-family: 'Lato', sans-serif; font-size: 14px;"><?php echo $tab[3]?></p>
 				</section>
 				<footer>
 					<hr>
-					<p>Posted by<?php echo $tab[5] ;?> <strong></strong></p>
-					<p>Posted on<?php echo $tab[4] ;?> <time></time></p>
+					<p>Posted by Admin <strong></strong></p>
+					<p>Posted on  <?php echo $tab[4] ;?> <time></time></p>
                     <div>
-                        <h>dsfghfdg12</h>
+                       <br>
                     <script type="text/javascript">var switchTo5x=true;</script>
                     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
                     <script type="text/javascript">stLight.options({publisher: "ef8d1f47-6408-4556-ab6c-9e221d6dd140", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
@@ -332,6 +355,7 @@
                     </div>
 				</footer>
 			</article>
+                    </div>
                 </div>
 		</center>
         <center>
@@ -346,11 +370,9 @@
                             if (data == "1") {
                                 $("#imageoflove").attr('src' , '../web/images/love1.png' );
                                 $("#nbredejaimepost").text("you and love this post") ;
-                                alert(data+"getjaime ") ;
                             }else {
-                                $("#imageoflove").attr('src' , 'images/love0.png' );
+                                $("#imageoflove").attr('src' , '../web/images/love0.png' );
                                 $("#nbredejaimepost").text(" love this post") ;
-                                alert(data+"getjaime") ;
                             }
                         }
                     });
@@ -367,7 +389,6 @@
                         success: function (data) {
                             $("#imageoflove").attr('src' , '../web/images/love1.png' );
                             $("#nbredejaimepost").text("love this post") ;
-                            alert("set love "+data) ;
                         }
                     });
 
@@ -380,7 +401,6 @@
                         success: function (data) {
                             $("#imageoflove").attr('src' , '../web/images/love0.png' );
                             $("#nbredejaimepost").text(" love this post") ;
-                            alert("clear love " +data)  ;
                         }
                     });
                 }
