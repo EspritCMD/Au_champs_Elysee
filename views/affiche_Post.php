@@ -336,7 +336,7 @@
 					<img src="<?php echo "../web/images/imageserveur/".$tab[8] ;?>" width="500">
 				</header>
 				<section style="padding: 30px ;">
-					<p style="font-family: 'Lato', sans-serif; font-size: 14px;"><?php echo $tab[3]?></p>
+					<p style="font-family: 'Lato', sans-serif; font-size: 16px; text-decoration-color: #0e0e0e"><?php echo $tab[3]?></p>
 				</section>
 				<footer>
 					<hr>
@@ -420,7 +420,7 @@
                     });
                 }
             </script>
-            <img src="<?php echo $imagesrc ; ?>" width="40px"  name="imageoflove"  id="imageoflove" onclick="makelove();">
+            <img src="" width="40px"  name="imageoflove"  id="imageoflove" onclick="makelove();">
             <input type="button" onclick="getjaimevalue(); ">
             <p id="nbredejaimepost"> love this post </p>
             <div id="theidofusernow" style="display: none;"><?php echo "10";?></div>
@@ -566,6 +566,13 @@
 
 
           </script>
+                        <div id="tableaudaffichage">
+
+                        </div>
+
+
+
+
 
             <div>
 				<?php

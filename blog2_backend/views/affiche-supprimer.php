@@ -501,6 +501,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 </center>
 
                                                             </footer>
+                                                            <script>
+                                                                var a = '<input class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href=' +  'postamodifier.php?id<?php  echo $value["id"] ?>' +"'"  +
+                                                            </script>
 
                                                         </article>
                                                     </center>
@@ -623,6 +626,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="menu-academico-sub" >
 						<li id="menu-academico-avaliacoes" ><a href="inbox.html">Inbox</a></li>
 						<li id="menu-academico-boletim" ><a href="inbox-details.html">Compose email</a></li>
+                        <li> </li>
 					</ul>
 				</li>
 				<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>

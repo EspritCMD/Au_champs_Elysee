@@ -271,14 +271,14 @@
     <!--//les images mte3i -->
     <section>
         <center>
-            <p><strong>Stories</strong></p>
+            <h1 style="font-size: 40px ; font-style: oblique"><strong>Article</strong></h1><br><br>
         </center>
 
         <center>
             <label>tri croissant</label><br>
-            <input type="submit" name="croissant" value="croissant" onclick="affichegecroissant()"><br>
+            <img src="../web/images/trie-croissant.png" width="40px" onclick="affichegecroissant()"><br>
             <label>tri decroissant</label><br>
-            <input type="submit" name="decroissant" value="decroissant" onclick="affichegedecroissant()">
+            <img src="../web/images/trie-decroissant.jpg" width="40px" onclick="affichegedecroissant()">
             <br><br>
 
             <input type="text"  name="Username"  placeholder="recherche" id="rechercheavance"  onkeyup="recheravance() ; " >
@@ -324,7 +324,7 @@
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
-                                            '"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
                                     } else {
                                         suggestionhtml += '<td>' +
@@ -335,7 +335,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;
@@ -385,7 +385,7 @@
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
-                                            '"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
 
                                     } else {
@@ -397,7 +397,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;
@@ -447,7 +447,7 @@
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
                                             '<center> <a href='+titles[i].id+
-                                            '"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
 
                                     } else {
@@ -459,7 +459,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"../../views/affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;

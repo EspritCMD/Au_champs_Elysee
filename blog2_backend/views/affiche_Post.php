@@ -269,9 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <img src="<?php echo "images/imageserveur/".$tab[8] ;?>" width="500">
                                     </header>
                                     <section>
-                                        <h5 id="h5-bootstrap-heading"><?php echo $tab[3]?> qwrehjbl hwrtn id rqewteyrut
-                                        aefsgrdfhfjgkhl</h5>
-
+                                        <h5 id="h5-bootstrap-heading"><?php echo $tab[3]?></h5>
                                     </section>
                                     <footer>
                                         <hr>
