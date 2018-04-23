@@ -293,7 +293,6 @@
                         url: 'rechercheavance.php'  ,
                         type: "GET" ,
                         data : "str="+str ,
-
                         success: function (data) {
                             var titles = JSON.parse(data);
                             console.log(titles);
@@ -323,8 +322,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+
-                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
 
                                     } else {
                                         suggestionhtml += '<td>' +
@@ -335,7 +333,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;
@@ -384,8 +382,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+
-                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center><a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
 
 
                                     } else {
@@ -397,7 +394,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;
@@ -446,8 +443,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+
-                                            '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center><a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
 
 
                                     } else {
@@ -459,7 +455,7 @@
                                             "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                             "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                             "<footer>" +  "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                            '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                            '<center> <a href='+ '"affiche_Post.php?id='+titles[i].id+'">Read more</a></center></footer></article></center></td>';
 
                                     }
                                     j++;

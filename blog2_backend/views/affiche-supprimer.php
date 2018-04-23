@@ -236,9 +236,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <center>
 
                                     <label>tri croissant</label><br>
-                                    <input type="submit" name="croissant" value="croissant" onclick="affichegecroissant()"><br>
+                                    <img src="../../web/images/trie-croissant.png" width="40px" onclick="affichegecroissant()"><br>
                                     <label>tri decroissant</label><br>
-                                    <input type="submit" name="decroissant" value="decroissant" onclick="affichegedecroissant()">
+                                    <img src="../../web/images/trie-decroissant.jpg" width="40px" onclick="affichegedecroissant()">
                                 <br>
 
                                 <input type="text" id="rechercheavance" value="rechercheavance" onkeyup="recheravance() ; " >
@@ -248,6 +248,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <script type="text/javascript">
                                     function recheravance() {
+                                        var a = "location.href =postamodifier.php?id=<?php echo $value['id'] ?>;" ;
+                                        var b = "location.href=affiche_Post.php?id=<?php echo $value['id'] ?>;" ;
+                                        var c = "supprimerpost(<?php echo $value['id'] ;?>) ;" ;
                                         var str =  $("#rechercheavance").val() ;
                                         $.ajax({
                                             url: '../views/rechercheavance.php'  ,
@@ -283,8 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+
-                                                                '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                                                '<center><a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>' ;
                                                            // alert(titles[i].id) ;
 
                                                         } else {
@@ -296,8 +298,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
-                                                          //  alert(titles[i].id) ;
+                                                                '<center><a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a> </center></footer></article></center></td>' ;
+                                                            //  alert(titles[i].id) ;
                                                         }
                                                         j++;
                                                     }
@@ -345,8 +347,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+
-                                                                '"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                                                '<center> <a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
                                                           //  alert(titles[i].id) ;
 
                                                         } else {
@@ -358,7 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> <a href='+titles[i].id+'"affiche_Post.php?id=">Read more</a></center></footer></article></center></td>';
+                                                                '<center><a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a></center></footer></article></center></td>';
                                                           //  alert(titles[i].id) ;
                                                         }
                                                         j++;
@@ -406,7 +407,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>" + posttextsubstr + "..." + "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center>'+ ' <center></footer></article></center></td>';
+                                                                '<center>'+ '<a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a>' +' <center></footer></article></center></td>';
                                                               // suggestionhtml += '<input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = '+'postamodifier.php?id=<?php echo $value['id'] ?>';" >n' ;
                                                             //alert(titles[i].id) ;
 
@@ -419,7 +420,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 "</header>" + "<section>" + "<h1>" + titles[i].title2 + "</h1>" +
                                                                 "<p>..." +posttextsubstr+ "</p>" + "</section>" +
                                                                 "<footer>" + "<hr>" + "<p>posted by Admin </p>" + "<p>Posted on <time>" + titles[i].postdate + "</time></p>" +
-                                                                '<center> ' + '</center></footer></article></center></td>';
+                                                                '<center> ' +'<a href='+ '"affiche_Post.php?id='+titles[i].id+'"> Read more</a>'+ '</center></footer></article></center></td>';
                                                         }
                                                         j++;
                                                     }
@@ -445,9 +446,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         margin: 0; padding: 0;
                                         border-collapse: collapse;
 
+
                                     }
                                     td {
-                                        border: 1px solid #0F9E5E;
+
                                         border-spacing: 0;
                                         height: 100px;
                                         width: 100px;
@@ -533,6 +535,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 <input  class="btn btn-1 btn-warning" type="submit" name="modifier" value="modifier" onclick="location.href = 'postamodifier.php?id=<?php echo $value['id'] ?>';" >
                                                                 <input  class="btn btn-1 btn-success" type="submit" name="readmore" value="read more" onclick="location.href='affiche_Post.php?id=<?php echo $value['id'] ?>';"><br>
                                                                 <input class="btn btn-1 btn-danger" type="submit" name="modifier" value="supprimer" onclick="supprimerpost(<?php echo $value['id'] ;?>) ;">
+
 
                                                             </footer>
 
@@ -626,7 +629,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul id="menu-academico-sub" >
 						<li id="menu-academico-avaliacoes" ><a href="inbox.html">Inbox</a></li>
 						<li id="menu-academico-boletim" ><a href="inbox-details.html">Compose email</a></li>
-                        <li> </li>
+
 					</ul>
 				</li>
 				<li><a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right" style="float: right"></span></a>

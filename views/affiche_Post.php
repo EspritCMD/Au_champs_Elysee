@@ -299,41 +299,30 @@
 	<section>
 		<?php
 		include "../core/comclassC.php";
-		//include "../core/interactionC.php" ;
-		//include "../entities /interaction.php" ;
 		$post = new postclassC() ;
 		$interaction = new interactionC() ;
 		$nbrdejaime =  $interaction->calculerjaime($_GET['id']) ;
 		$jaime = $interaction->checkjaime(10,$_GET['id']) ;
-		/*if ($jaime['jaime'] == 1 ) {
-		    $imagesrc = "../web/images/love1.png";
-        }else{
-			$imagesrc = "../web/images/love0.png";
-		}
-		*/
 		$AA = $post->affichePost($_GET['id']) ;
 		$i = 0 ;
         foreach ($AA as $key=>$value){
             $tab[$i]= $value ;
             $i++ ;
         }
-
-
 		?>
-
-
 		<center>
             <div>
                 <img class="craft" src="../web/images/good-food-post.jpg">
-
             </div>
-
+            <br><br>
+            <h1 style="font-size: 40px "><?php echo $tab[1] ;?> </h1><br><br>
             <div style="padding: 40px" >
                 <div class="polaroidpost">
 			<article>
 				<header>
-					<h1 style="font-size: 20px  ; text-decoration-color: red ;"><?php echo $tab[2] ;?> </h1><br><br>
-					<img src="<?php echo "../web/images/imageserveur/".$tab[8] ;?>" width="500">
+					<h1 style="font-size: 20px  ; text-decoration-color: red ;"><?php echo $tab[1] ;?> </h1><br><br>
+					<img src="<?php echo "../web/images/imageserveur/".$tab[8] ;?>" width="500"><br>
+                    <h1 style="font-size: 15px ;"><?php echo $tab[2] ;?> </h1>
 				</header>
 				<section style="padding: 30px ;">
 					<p style="font-family: 'Lato', sans-serif; font-size: 16px; text-decoration-color: #0e0e0e"><?php echo $tab[3]?></p>
@@ -359,7 +348,7 @@
                 </div>
 		</center>
         <center>
-            <script type="text/javascript">
+            <script >
                 function getjaimevalue() {
                     $.ajax({
                         url: 'checkjaime.php'  ,
@@ -387,20 +376,18 @@
                         type: "get" ,
                         data : "idpost=<?php echo $_GET['id'];?>&idclient=10" ,
                         success: function (data) {
-                            $("#imageoflove").attr('src' , '../web/images/love1.png' );
-                            $("#nbredejaimepost").text("love this post") ;
+                                getjaimevalue() ;
+                            }
                         }
-                    });
+                    )}
 
-                }
                 function  clearlove() {
                     $.ajax({
                         url: 'jaimepas.php'  ,
                         type: "get" ,
                         data : "idpost=<?php echo $_GET['id'];?>&idclient=10" ,
                         success: function (data) {
-                            $("#imageoflove").attr('src' , '../web/images/love0.png' );
-                            $("#nbredejaimepost").text(" love this post") ;
+                           getjaimevalue() ;
                         }
                     });
                 }
@@ -410,7 +397,6 @@
                         type: "get",
                         data : "id=<?php echo $_GET['id'];?>" ,
                         success: function (data) {
-                            alert(data) ;
                             if (data == "1") {
                                 clearlove() ;
                             }else {
@@ -435,11 +421,27 @@
 
         <hr>
         <center>
-        <label style="position: center">Commentaire</label>
+        <h1 style="font-size: 35px">Commentaire</h1>
             <div id="domtarget" style="display: none;"><?php echo htmlspecialchars($_GET['id'] );?></div>
 
             <br>
             <br>
+            <style >
+                table {
+                    height: 100px;
+                    width: 100px;
+                    margin: 0; padding: 0;
+                    border-collapse: collapse;
+
+                }
+                td {
+
+                    border-spacing: 0;
+                    margin: 0; padding: 0;
+
+                }
+
+            </style>
 
           <script type="text/javascript">
               function affichercomentaire() {
@@ -452,28 +454,28 @@
                              var  commentshtml = "" ;
                               var coments = JSON.parse(data);
                               if (coments.length == 0) {
-                                  document.getElementById("tableaudaffichage").innerHTML = "<table><tr><td style='font-size: 70px ; padding-bottom:30px; '>No comments yet  , post one ? </td></tr><br><tr><td  style=' padding-bottom:30px;'>" +
+                                  document.getElementById("tableaudaffichage").innerHTML = "<table class ='table' ><tr><td style='font-size: 70px ; padding-bottom:30px; align-content: center;'><center>No comments yet  , post one ?</center></td>" +
+                                      "<tr><td style=' padding-bottom:30px;'><center><input type='text' value='add comment'  id='firstcoemnt' ><center><br>" +
                                       "<center><img name='imagefirstadd' src='../web/images/add_comment.jpg' width='30px' onclick='addcomments();'></center></td></tr>" +
-                                      "<tr><td   style=' padding-bottom:30px;'><input type='text' value='add comment'  id='firstcoemnt' >" +
                                       "</table>";
-                                  alert(document.getElementById("tableaudaffichage").innerHTML+"gdah") ;
+                                 // alert(document.getElementById("tableaudaffichage").innerHTML+"gdah") ;
                               } else {
-                                  commentshtml = "<table>";
+                                  commentshtml = "<table class='table'>";
                                   var div = document.getElementById("theidofusernow");
                                   var myData = div.textContent;
                                   for (var i = 0; i < coments.length; i += 1) {
                                       var j = coments[i].id;
-                                      commentshtml += "<tr><td   style=' padding-bottom:30px;'>" + coments[i].commentaire +"</td>";
+                                      commentshtml += "<tr><td>" + coments[i].commentaire +"</td>";
                                       if (coments[i].idcliet ==  myData){
-                                           commentshtml += "<td style=' padding-bottom:30px; '><img src='../web/images/modifier.jpg' width='30px' onclick='modifiercomentaire("+j+")'>   <img src='../web/images/delete-message.png' width='30px' onclick='supprimercommetaire("+j+")'></td>" ;
+                                           commentshtml += "<td><img src='../web/images/modifier.jpg' width='30px' onclick='modifiercomentaire("+j+")'><img src='../web/images/delete-message.png' width='30px' onclick='supprimercommetaire("+j+")'></td>" ;
                                       }
-                                      commentshtml += "<td   style=' padding-bottom:30px;'>Posted by <img ></td></tr>"
+                                      commentshtml += "<td >Posted by <img  src='../web/images/test2.jpg' width='45px'></td></tr>"
 
                                   }
                                   var secondcoment = "textofcoments" ;
-                                  document.getElementById("tableaudaffichage").innerHTML = commentshtml +"<tr><td style=' padding-bottom:30px; padding-right: 20px;'>" +
-                                      "<input type='text' id='textofcoments'></td>" +
-                                      "<td style=' padding-bottom:30px;'><img name='imagefirstadd' src='../web/images/add_comment.jpg' width='30px' onclick='addmorecomments();'></td></tr></table>" ;
+                                  document.getElementById("tableaudaffichage").innerHTML = commentshtml +"<tr><td></td>" +
+                                      "<td><input  type='text' id='textofcoments'>" +
+                                      "</td><td><img name='imagefirstadd' src='../web/images/add_comment.jpg' width='30px' onclick='addmorecomments();'></td></tr></table>" ;
                               }
 
                           }
@@ -491,7 +493,7 @@
                           type: 'GET',
                           data: div,
                           success: function () {
-                              alert("ajout a etaist fairt ");
+                              alert("done !!");
                           }
 
                       })
@@ -546,18 +548,6 @@
                       })
                   }
               }
-              function affichephotoflicker() {
-                  $.ajax({
-                          url: "api_flicker.php",
-                          type: 'Get' ,
-                          success : function (response) {
-                              alert(response) ;
-                              console.log(response)  ;
-                          }
-
-                      }
-                  )
-              }
               $(document).ready(function () {
                   affichercomentaire() ;
                   //affichephotoflicker() ;
@@ -566,9 +556,9 @@
 
 
           </script>
-                        <div id="tableaudaffichage">
-
+                        <div id="tableaudaffichage" class="polaroidpost">
                         </div>
+            <br><br><br><hr>
 
 
 
@@ -613,10 +603,9 @@
 
 				?>
             </div>
-            <hr>
+
 
             <br>
-            <hr>
         </center>
     </section>
 

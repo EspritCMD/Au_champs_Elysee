@@ -350,7 +350,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<?php
                             $i++ ;
-                            echo $i ;
+                           
 						}
 
 						foreach ($_POST as $key=>$value) {

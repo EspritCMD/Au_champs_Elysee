@@ -266,7 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <article>
                                     <header>
                                         <h2 id="h2-bootstrap-heading"><?php echo $tab[2] ;?> </h2>
-                                        <img src="<?php echo "images/imageserveur/".$tab[8] ;?>" width="500">
+                                        <img src="<?php echo "../../web/images/imageserveur/".$tab[8] ;?>" width="500">
                                     </header>
                                     <section>
                                         <h5 id="h5-bootstrap-heading"><?php echo $tab[3]?></h5>
@@ -353,8 +353,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             var commstat  = document.getElementById("firstspan").innerText ;
                             var jaimestat  = document.getElementById("secondspan").innerText ;
                             console.log(typeof jaimestat) ;
-                                alert(commstat) ;
-                                alert(jaimestat) ;
                              console.log( parseInt(commstat , 10)) ;
                              console.log( parseInt(jaimestat,10)) ;
                              var a =   parseInt(commstat , 10) ;
@@ -400,6 +398,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </div>
             </div>
+</div>
             <!--inner block end here-->
             <!--copy rights start here-->
             <div class="copyrights">
