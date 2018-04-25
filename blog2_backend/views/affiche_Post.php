@@ -357,7 +357,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                              console.log( parseInt(jaimestat,10)) ;
                              var a =   parseInt(commstat , 10) ;
                              var b = parseInt(jaimestat , 10) ;
-                             if (a ==0 ){
+                             if (a == 0 ){
                                  if (b == 0) {
                                      a = 1 ;
                                      b = 1 ;

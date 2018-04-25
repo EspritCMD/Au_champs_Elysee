@@ -10,7 +10,46 @@
         function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<!--// Meta tag Keywords -->
 	<!-- css files -->
-	<link href="../web/css/store.css" rel="stylesheet" type="text/css" media="all">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="../web/css/mk-notifications.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+    <script src="../web/js/mk-notifications.js"></script>
+    <script id="cid0020000185570029341" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"auchampseleyse","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"pos":"br","cv":1,"cvfnt":"TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif, sans-serif","cvfntw":"bolder","cvbg":"CC0000","cvw":200,"cvh":30,"ticker":1,"fwtickm":1}}</script>
+    <script>
+        var mkConfig = {
+            positionY: 'bottom',
+            positionX: 'right',
+            max: 5,
+            scrollable: true
+        };
+
+        mkNotifications(mkConfig);
+
+        mkNoti(
+            'MK Web Notifications (Info)',
+            'Example of generated notification with status Info',
+            {
+                status:'info'
+            }
+        );
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+
 	<link href="../web/css/stylepanier.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='//fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="../web/js/jquery-1.11.1.min.js"></script>
@@ -275,9 +314,9 @@
         </center>
 
         <center>
-            <label>tri croissant</label><br>
+            <label>recent </label><br>
             <img src="../web/images/trie-croissant.png" width="40px" onclick="affichegecroissant()"><br>
-            <label>tri decroissant</label><br>
+            <label>oldest</label><br>
             <img src="../web/images/trie-decroissant.jpg" width="40px" onclick="affichegedecroissant()">
             <br><br>
 
@@ -473,6 +512,7 @@
 
             <br>
             <div id="nothingtoshow" style="font-size: 150px">
+
 
 
             </div>

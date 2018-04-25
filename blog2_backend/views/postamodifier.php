@@ -247,7 +247,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<form class="" action="modifier.php" method="post" enctype="multipart/form-data">
 								<input type="text" name="title" value="<?php echo $tab[1];?>" placeholder="Title" required>
 								<input type="text" name="title2" value="<?php echo $tab[2];?>"  placeholder="Second Title"  required>
-								<textarea rows="5" cols="60" name="comment" id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo $tab[3] ; ?></textarea><br>
+								<textarea rows="5" cols="60" name="comment"   id="posttextlenght"  placeholder="Post" onkeyup="checklenght();" required ><?php echo $tab[3] ; ?></textarea><br>
 								<input type="text" name="id" value="<?php echo $tab[0];?>" style="display: none"><br>
                                 <input type="checkbox" id="checkboximage" name="test" value="value1" onclick="checkimageuploadsatate();" ><label for="test" style="font-size: 16px">if you want to change your image check this checkbox and chosse image </label><br>
 								<img src="../../web/images/imageserveur/<?php echo $tab[8] ;?>"  width="400px">

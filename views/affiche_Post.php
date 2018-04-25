@@ -13,6 +13,7 @@
     <link href="../web/css/font-awesome-animation.css" >
 	<link href="../web/css/stylepanier.css" rel="stylesheet" type="text/css" media="all" />
 	<link href='//fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
+    <script id="cid0020000185570029341" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 200px;height: 300px;">{"handle":"auchampseleyse","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"pos":"br","cv":1,"cvfnt":"TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif, sans-serif","cvfntw":"bolder","cvbg":"CC0000","cvw":200,"cvh":30,"ticker":1,"fwtickm":1}}</script>
 	<script type="text/javascript" src="../web/js/jquery-1.11.1.min.js"></script>
 	<script>$(document).ready(function(c) {
             $('.alert-close').on('click', function(c){
